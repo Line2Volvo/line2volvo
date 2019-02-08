@@ -1,0 +1,146 @@
+﻿﻿<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Volvo V40 任務派遣</title>
+    <link rel="stylesheet" href="mission.css">
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script>
+////////////////////////////////////////////////////////
+var usrname = "";
+var usrpic = "";
+window.onload = function (e) {
+   liff.getProfile().then(function (profile) {
+      initializeApp(profile);
+   });
+};
+////////////////////////////////////////////////////////
+function initializeApp(profile) {
+            usrname = profile.displayName;
+            usrpic = profile.pictureUrl;
+            
+            document.getElementById('useridprofilefield').textContent = profile.userId;
+            document.getElementById('displaynamefield').textContent = profile.displayName;
+
+            var profilePictureDiv = document.getElementById('profilepicturediv');
+            if (profilePictureDiv.firstElementChild) {
+                profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
+            }
+            var img = document.createElement('img');
+            img.src = profile.pictureUrl;
+            img.alt = "頭像";
+            profilePictureDiv.appendChild(img);
+
+            document.getElementById('statusmessagefield').textContent = profile.statusMessage;
+            
+    // openWindow call
+    document.getElementById('openwindowbutton').addEventListener('click', function () {
+        liff.openWindow({
+            url: 'https://www.facebook.com/groups/volvov40intaiwan/permalink/2035769503338899'
+        });
+    });
+
+    // closeWindow call
+    document.getElementById('closewindowbutton').addEventListener('click', function () {
+        liff.closeWindow();
+    });
+}
+////////////////////////////////////////////////////////
+function toggleProfileData() {
+    var elem = document.getElementById('profiledata');
+    if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+        elem.style.display = "none";
+    } else {
+        elem.style.display = "block";
+    }
+}
+////////////////////////////////////////////////////////
+// Query_String 轉型
+//var uri = location.search;
+var obj = { };  //Object
+    
+function parsrQueryString(uri){
+       var string_array = [ ];//Array
+       var string_array = uri.replace('?','').split("&");
+       //replace('?','')拿掉第一個問號
+   
+       for(var i =0;i<string_array.length; i++){
+       //console.log(string_array[i].split('=')[0]);     //[0]取得key name
+       //console.log(string_array[i].split('=')[1]);     //[1]取得value
+       obj[string_array[i].split('=')[0] ] = string_array[i].split('=')[1] || ''; 
+       //沒有值就預設為''
+       }
+       //獲得 obj.ADDR obj.Y obj.X
+       //window.alert(obj.X);
+       //
+       //
+       // 送出 Message Location type
+       liff.sendMessages([
+        {
+            type: 'text',
+            text: "任務執行人：" + usrname + "\nMission：" + obj.ADDR,
+        }, 
+       {
+           "type": "location",
+           "title": obj.ADDR,
+           "address": obj.ADDR,
+           "latitude": obj.Y,
+           "longitude": obj.X
+       },
+        ]).then(function () {
+            window.alert(usrname  + ">>出任務>>" + obj.ADDR);
+        }).catch(function (error) {
+            window.alert("位置傳送失敗錯誤碼: " + error);
+        });
+}
+    </script>  
+</head>
+
+<body>
+
+    <div class="buttongroup">
+        <div class="buttonrow">
+            <button id="openwindowbutton">開啟 Line2Volvo 使用說明</button>
+            <button  onclick="toggleProfileData()">隱藏/展現 資料</button>
+            <button id="closewindowbutton">關閉程式</button>
+        </div>
+    </div>  
+
+    <div id="profiledata">
+        <h2>個人檔案資料</h2><font color="red">未出現您的頭像，請關掉重連。</font>
+        <div id="profilepicturediv">
+        </div>
+        <table border="1">
+            <tr>
+                <th>任務執行人</th>
+                <td id="displaynamefield"></td>
+            </tr>
+            <tr>
+                <th>狀態訊息</th>
+                <td id="statusmessagefield"></td>
+            </tr>
+            <tr>
+                <th>UserId</th>
+                <td id="useridprofilefield"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="buttongroup">
+        <div class="buttonrow">
+            <hr/>
+            
+            點選出車友開設的店，<br/>
+            再到 Line 中按 Line2Volvo 傳送任務地點到汽車上。<br/>
+            <br/>
+            也可利用多重選單查詢該地天氣、紫外線、<br/>
+            空氣品質、潮汐、雨量、附近餐飲商店等等資訊。<br/>
+            <hr/>
+<button onclick=parsrQueryString('?ADDR=頭城愛是美專業剪髮&Y=24.8573799&X=121.822479')>1頭城愛是美專業剪髮</button><br/>
+<button onclick=parsrQueryString('?ADDR=雙北GAUTE 西服訂製&Y=25.031072&X=121.5476012')>2雙北GAUTE 西服訂製</button><br/>
+<button onclick=parsrQueryString('?ADDR=台中大東海眼鏡&Y=24.1646229&X=120.6592825')>3台中大東海眼鏡</button><br/>
+<button onclick=parsrQueryString('?ADDR=南投金台灣山莊&Y=23.688731&X=120.790752')>4南投金台灣山莊</button><br/>
+
+        </div>
+    </div>
+    
+</body>
