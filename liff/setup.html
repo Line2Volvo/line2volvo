@@ -14,10 +14,13 @@ window.onload = function (e) {
 function SendMsg(msg){
        if (msg == "email") {
           var v = document.getElementById("email").value;
+          var msg1 = "請回到 Line 中並查看汽車上的驗證碼\n";
        } else if (msg == "vnum") {
           var v = document.getElementById("vnum").value;
+          var msg1 = "請回到 Line 中並查看驗證碼是否通過。";
        } else if (msg == "car") {
           var v = document.getElementById("car").value;
+          var msg1 = "請回到 Line 中並查看設定車款是否正確。";
        }
        v = "//" + v;
        //v = "//" + v.replace('\s','');
@@ -28,7 +31,7 @@ function SendMsg(msg){
             "text": v,
         }, 
         ]).then(function () {
-            window.alert("請回到 Line 中並查看汽車上的驗證碼\n");
+            window.alert(msg1);
             liff.closeWindow();
         }).catch(function (error) {
             window.alert("傳送失敗錯誤碼：" + error);
