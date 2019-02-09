@@ -1,7 +1,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1249Volvo Cars Setup</title>
+    <title>Volvo Cars Setup</title>
     <link rel="stylesheet" href="setup.css">
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
@@ -13,7 +13,7 @@ window.onload = function (e) {
 /////////
 function SendMsg(msg){
        var v = document.getElementById("msg").value
-       v = v.replace('\s','');
+       v = "//" + v.replace('\s','');
        // 送出 Message
        liff.sendMessages([
         {
@@ -21,10 +21,10 @@ function SendMsg(msg){
             "text": v,
         }, 
         ]).then(function () {
-            window.alert("查看汽車上的驗證碼\n" + v);
+            window.alert("請回到 Line 中並查看汽車上的驗證碼\n");
             liff.closeWindow();
         }).catch(function (error) {
-            window.alert("位置傳送失敗錯誤碼：" + error);
+            window.alert("傳送失敗錯誤碼：" + error);
         });
 }
 /////////
