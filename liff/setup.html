@@ -31,18 +31,18 @@ function SendMsg(msg){
 }
 /////////
  $(function () {
-      //ButtonSendMsg
-      $('#ButtonSendMsg').click(function () {
-        liff.sendMessages([
-        {
-            type: 'text',
-            text: $('#msg').val()
-        },
-        ]).then(function () {
-            window.alert("查看汽車上的驗證碼\n" + msg);
-        }).catch(function (error) {
-            window.alert("位置傳送失敗錯誤碼：" + error);
-        });
+            //ButtonSendMsg
+            $('#ButtonSendMsg').click(function () {
+                liff.sendMessages([
+                 {
+                     type: 'text',
+                     text: $('#msg').val()
+                 }
+                ])
+               .then(() => {
+                   alert('done');
+               })
+            });
     </script>
 </head>
 <body>
