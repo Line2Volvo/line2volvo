@@ -3,7 +3,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1230Volvo Cars Setup</title>
+    <title>Volvo Cars Setup</title>
     <link rel="stylesheet" href="mission.css">
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
@@ -13,7 +13,7 @@ window.onload = function (e) {
    liff.init();
 };
 /////////
-function SendMsg(msg) {
+function SendMsg(msg){
 
        //msg = msg.replace('\s','');
 
@@ -30,13 +30,52 @@ function SendMsg(msg) {
         });
 }
 /////////             text: $('#msg').val()
+// 無圖
+function parseQueryStringNoImg(uri){
+       var string_array = [ ];//Array
+       var string_array = uri.replace('?','').split("&");
+       //replace('?','')拿掉第一個問號
+   
+       for(var i =0;i<string_array.length; i++){
+       //console.log(string_array[i].split('=')[0]);     //[0]取得key name
+       //console.log(string_array[i].split('=')[1]);     //[1]取得value
+       obj[string_array[i].split('=')[0] ] = string_array[i].split('=')[1] || ''; 
+       //沒有值就預設為''
+       }
+       //獲得 obj.ADDR obj.Y obj.X
+       //window.alert(obj.X);
+       //
+       //
+       // 送出 Message Location type
+       liff.sendMessages([
+        {
+            type: "text",
+            text: "Mission：" + obj.ADDR,
+        }, 
+       {
+           "type": "location",
+           "title": obj.ADDR,
+           "address": obj.ADDR,
+           "latitude": obj.Y,
+           "longitude": obj.X
+       },
+        ]).then(function () {
+            window.alert("出任務>>" + obj.ADDR);
+        }).catch(function (error) {
+            window.alert("位置傳送失敗錯誤碼：" + error);
+        });
+}
+/////////
     </script>
 </head>
 <body>
     <div class="buttongroup">
         <div class="buttonrow">
                 <label>要傳送的訊息:</label>
+   <input class="form-control" type="text" id="msg" value="mymail@gmail.com"/><br/>
    <button onclick="SendMsg('email')">設定郵件</button><br/>
+<button onclick="parseQueryString('?IMG=https://i.imgur.com/FONPLIf.jpg&ADDR=宜蘭冬山伯朗大道&Y=24.6454621&X=121.8140694')">1宜蘭冬山伯朗大道</button><br/>
+
          </div>
     </div>
 </body>
