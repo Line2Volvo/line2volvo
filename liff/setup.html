@@ -33,7 +33,6 @@ function SendMsg(msg){
 
 <body>
 
-    <div class="buttongroup">
         <div class="buttonrow">
             <hr/>
             Volvo Cars Setup<br/>
@@ -43,21 +42,17 @@ function SendMsg(msg){
             4.設定車種類型。<br/>
             5.參考搜尋傳送方式在 Line 中使用。<br/>
             <hr/>
-
        </div>
-    </div>
 
     <div class="buttongroup">
         <div class="buttonrow">
         <label>Email:</label>
-           <input class="form-control" type="text" id="msg" value="mymail@gmail.com"/>
-           <button onclick="SendMsg('mail')">註冊</button><br/>
+           <input type="text" id="msg" value="mymail@gmail.com"/><button onclick="SendMsg('mail')">註冊</button><br/>
+           
         <label>驗證碼：</label>
-           <input class="form-control" type="text" id="msg" value="5678"/ maxlength="4">
-           <button onclick="SendMsg('mail')">驗證</button><br/>
+           <input type="text" id="msg" value="5678"/ maxlength="4"><button onclick="SendMsg('mail')">驗證</button><br/>
         <label>車款：</label>
-           <input class="form-control" type="text" id="msg" value="v40"/>
-           <button onclick="SendMsg('mail')">設定車款</button><br/>
+           <input class="form-control" type="text" id="msg" value="v40"/><button onclick="SendMsg('mail')">設定車款</button><br/>
         </div>
     </div>
 
