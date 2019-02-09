@@ -3,7 +3,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1Volvo Cars Setup</title>
+    <title>Volvo Cars Setup</title>
     <link rel="stylesheet" href="mission.css">
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
@@ -21,7 +21,7 @@ function SendMsg(msg){
        liff.sendMessages([
         {
             type: "text",
-            text: msg,
+            text: "test",
         }, 
         ]).then(function () {
             window.alert("查看汽車上的驗證碼\n" + msg);
@@ -31,26 +31,26 @@ function SendMsg(msg){
 }
 /////////
  $(function () {
-            //ButtonSendMsg
-            $('#ButtonSendMsg').click(function () {
-                liff.sendMessages([
-                 {
-                     type: 'text',
-                     text: $('#msg').val()
-                 }
-                ])
-               .then(() => {
-                   alert('done');
-               })
-            });
+      //ButtonSendMsg
+      $('#ButtonSendMsg').click(function () {
+        liff.sendMessages([
+        {
+            type: 'text',
+            text: $('#msg').val()
+        },
+        ]).then(function () {
+            window.alert("查看汽車上的驗證碼\n" + msg);
+        }).catch(function (error) {
+            window.alert("位置傳送失敗錯誤碼：" + error);
+        });
     </script>
 </head>
 <body>
         <div class="row">
             <div class="col-md-6" style="margin:5px">
                 <label>要傳送的訊息:</label>
-                <input class="form-control" type="text" id="msg" value="測試" /><br />
-                <button class="btn btn-primary" id="ButtonSendMsg"  >要傳送的訊息</button>
+                <input class="form-control" type="text" id="msg" value="mymail@gmail.com" /><br />
+                <button onclick="SendMsg()>設定郵件</button>
             </div>
         </div>
 </body>
