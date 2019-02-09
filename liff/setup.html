@@ -1,37 +1,33 @@
-﻿<head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>1249Volvo Cars Setup</title>
-    <link rel="stylesheet" href="mission.css">
+    <link rel="stylesheet" href="setup.css">
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
 ////////////////////////////////////////////////////////
-
 window.onload = function (e) {
-
    liff.init();
 };
 ////////////////////////////////////////////////////////
-
-
 /////////
 function SendMsg(msg){
-       var email = document.getElementById("email").value
-       //msg = msg.replace('\s','');
-
+       var v = document.getElementById("msg").value
+       v = v.replace('\s','');
        // 送出 Message
        liff.sendMessages([
         {
             "type": "text",
-            "text": email,
+            "text": v,
         }, 
         ]).then(function () {
-            window.alert("查看汽車上的驗證碼\n" + msg);
+            window.alert("查看汽車上的驗證碼\n" + v);
+            liff.closeWindow();
         }).catch(function (error) {
             window.alert("位置傳送失敗錯誤碼：" + error);
         });
 }
-/////////             text: $('#msg').val()
+/////////
     </script>  
 </head>
 
@@ -41,6 +37,11 @@ function SendMsg(msg){
         <div class="buttonrow">
             <hr/>
             Volvo Cars Setup<br/>
+            1.請先在車上註冊 Volvo ID 並 Email 通過。<br/>
+            2.在此輸入 Email 並按【註冊】，回到 Line 中看訊息。<br/>
+            3.汽車上收到四碼驗證碼，在第二欄輸入驗證。<br/>
+            4.設定車種類型。<br/>
+            5.參考搜尋傳送方式在 Line 中使用。<br/>
             <hr/>
 
        </div>
@@ -48,15 +49,20 @@ function SendMsg(msg){
 
     <div class="buttongroup">
         <div class="buttonrow">
-                <label>要傳送的訊息:</label>
-   <input class="form-control" type="text" id="email" value="mymail@gmail.com"/><br/>
-   <button onclick="SendMsg('mail')">設定郵件</button><br/>
-<button onclick="parseQueryString('?IMG=https://i.imgur.com/FONPLIf.jpg&ADDR=宜蘭冬山伯朗大道&Y=24.6454621&X=121.8140694')">1宜蘭冬山伯朗大道</button><br/>
-         </div>
+        <label>Email:</label>
+           <input class="form-control" type="text" id="msg" value="mymail@gmail.com"/><br/>
+           <button onclick="SendMsg('mail')">註冊</button><br/>
+        <label>驗證碼：</label>
+           <input class="form-control" type="text" id="msg" value="5678"/ maxlength="4"><br/>
+           <button onclick="SendMsg('mail')">驗證</button><br/>
+        <label>車款：</label>
+           <input class="form-control" type="text" id="msg" value="v40"/><br/>
+           <button onclick="SendMsg('mail')">設定車款</button><br/>
+        </div>
     </div>
 
 <hr/>
-Volvo Cars Setup ~鄒仔~
+Line2Volvo ~鄒仔~
 <hr/>
 
     </div>
