@@ -12,8 +12,15 @@ window.onload = function (e) {
 ////////////////////////////////////////////////////////
 /////////
 function SendMsg(msg){
-       var v = document.getElementById("msg").value
-       v = "//" + v.replace('\s','');
+       if (msg == "email") {
+          var v = document.getElementById("email").value;
+       } else if (msg == "vnum") {
+          var v = document.getElementById("vnum").value;
+       } else if (msg == "car") {
+          var v = document.getElementById("car").value;
+       }
+       v = "//" + v;
+       //v = "//" + v.replace('\s','');
        // 送出 Message
        liff.sendMessages([
         {
@@ -47,12 +54,12 @@ function SendMsg(msg){
     <div class="buttongroup">
         <div class="buttonrow">
         <label>Email:</label>
-           <input type="text" id="msg" value="mymail@gmail.com"/><button onclick="SendMsg('mail')">註冊</button><br/>
+           <input type="text" id="email" value="mymail@gmail.com"/><button onclick="SendMsg('email')">註冊</button><br/>
            
         <label>驗證碼：</label>
-           <input type="text" id="msg" value="5678"/ maxlength="4"><button onclick="SendMsg('mail')">驗證</button><br/>
+           <input type="text" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button><br/>
         <label>車款：</label>
-           <input class="form-control" type="text" id="msg" value="v40"/><button onclick="SendMsg('mail')">設定車款</button><br/>
+           <input class="form-control" type="text" id="car" value="v40"/><button onclick="SendMsg('car')">設定車款</button><br/>
         </div>
     </div>
 
