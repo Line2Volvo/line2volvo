@@ -62,7 +62,20 @@ function SendMsg(msg){
         <label>驗證碼：</label>
            <input type="text" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button><br/>
         <label>車款：</label>
-           <input class="form-control" type="text" id="car" value="v40"/><button onclick="SendMsg('car')">設定車款</button><br/>
+           <select name="carlist" id="car">
+             <option value="V40">V40(含cc)</option>
+             <option value="V50">V50</option>
+             <option value="V60">V60</option>
+             <option value="V90">V90</option>
+             <option value="S40">S40</option>
+             <option value="S60">S60</option>
+             <option value="S80">S80</option>
+             <option value="S90">S90</option>
+             <option value="XC40">XC40</option>
+             <option value="XC60">XC60</option>
+             <option value="XC70">XC70</option>
+             <option value="XC90">XC90</option>
+           </select><button onclick="SendMsg('car')">設定車款</button><br/>
         </div>
     </div>
 
