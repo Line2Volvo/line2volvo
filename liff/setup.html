@@ -60,7 +60,7 @@ function SendMsg(msg){
            <input type="text" id="email" value="mymail@gmail.com"/><button onclick="SendMsg('email')">註冊</button><br/>
            
         <label>驗證碼：</label>
-           <input type="text" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button><br/>
+           <input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button><br/>
         <label>車款：</label>
            <select name="carlist" id="car">
              <option value="V40">V40(含cc)</option>
