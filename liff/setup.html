@@ -54,17 +54,17 @@ function SendMsg(msg){
             <hr/>
        </div>
 
-        <table border="1">
+        <table>
         <tr><td>
-        <label>Email:</label>
+        Email:</td>
            <td><input type="text" id="email" value="mymail@gmail.com"/><td><button onclick="SendMsg('email')">註冊</button></td>
         </tr>
         <tr><td>   
-        <label>驗證碼：</label></td>
+        驗證碼：</td>
            <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"></td><td><button onclick="SendMsg('vnum')">驗證</button></td>
         </tr>
         <tr><td>   
-        <label>車款：</label></td>
+        車款：</td>
            <td><select name="carlist" id="car">
              <option value="V40">V40(含cc)</option>
              <option value="V50">V50</option>
