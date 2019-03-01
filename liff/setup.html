@@ -59,14 +59,14 @@ function SendMsg(msg){
         <table>
         <tr><td>
         <label>Email:</label>
-           <td><input type="text" id="email" value="mymail@gmail.com"/><td><button onclick="SendMsg('email')">註冊</button><br/>
+           <td><input type="text" id="email" value="mymail@gmail.com"/><td><button onclick="SendMsg('email')">註冊</button></td>
         </tr>
         <tr><td>   
-        <label>驗證碼：</label>
-           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"><td><button onclick="SendMsg('vnum')">驗證</button><br/>
+        <label>驗證碼：</label></td>
+           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"></td><td><button onclick="SendMsg('vnum')">驗證</button></td>
         </tr>
         <tr><td>   
-        <label>車款：</label>
+        <label>車款：</label></td>
            <td><select name="carlist" id="car">
              <option value="V40">V40(含cc)</option>
              <option value="V50">V50</option>
@@ -80,7 +80,7 @@ function SendMsg(msg){
              <option value="XC60">XC60</option>
              <option value="XC70">XC70</option>
              <option value="XC90">XC90</option>
-           </select><td><button onclick="SendMsg('car')">設定車款</button><br/>
+           </select></td><td><button onclick="SendMsg('car')">設定車款</button></td>
         </tr>
         </table>
         </div>
