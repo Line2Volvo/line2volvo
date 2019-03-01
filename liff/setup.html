@@ -57,11 +57,11 @@ function SendMsg(msg){
         <table>
         <tr><td>
         Email:</td>
-           <td><input type="text" id="email" value="mymail@gmail.com"/><td><button onclick="SendMsg('email')">註冊</button></td>
+           <td><input type="text" id="email" value="mymail@gmail.com"/><button onclick="SendMsg('email')">註冊</button></td>
         </tr>
         <tr><td>   
         驗證碼：</td>
-           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"></td><td><button onclick="SendMsg('vnum')">驗證</button></td>
+           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button></td>
         </tr>
         <tr><td>   
         車款：</td>
@@ -78,7 +78,7 @@ function SendMsg(msg){
              <option value="XC60">XC60</option>
              <option value="XC70">XC70</option>
              <option value="XC90">XC90</option>
-           </select></td><td><button onclick="SendMsg('car')">設定車款</button></td>
+           </select><button onclick="SendMsg('car')">設定車款</button></td>
         </tr>
         </table>
 
