@@ -56,17 +56,22 @@ function SendMsg(msg){
 
     <div class="buttongroup">
         <div class="buttonrow">
+        <table>
+        <tr><td>
         <label>Email:</label>
-           <input type="text" id="email" value="mymail@gmail.com"/><button onclick="SendMsg('email')">註冊</button><br/>
-           
+           <td><input type="text" id="email" value="mymail@gmail.com"/><td><button onclick="SendMsg('email')">註冊</button><br/>
+        </tr>
+        <tr><td>   
         <label>驗證碼：</label>
-           <input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"><button onclick="SendMsg('vnum')">驗證</button><br/>
+           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"><td><button onclick="SendMsg('vnum')">驗證</button><br/>
+        </tr>
+        <tr><td>   
         <label>車款：</label>
-           <select name="carlist" id="car">
+           <td><select name="carlist" id="car">
              <option value="V40">V40(含cc)</option>
              <option value="V50">V50</option>
-             <option value="V60">V60</option>
-             <option value="V90">V90</option>
+             <option value="V60">V60(含cc)</option>
+             <option value="V90">V90(含cc)</option>
              <option value="S40">S40</option>
              <option value="S60">S60</option>
              <option value="S80">S80</option>
@@ -75,7 +80,9 @@ function SendMsg(msg){
              <option value="XC60">XC60</option>
              <option value="XC70">XC70</option>
              <option value="XC90">XC90</option>
-           </select><button onclick="SendMsg('car')">設定車款</button><br/>
+           </select><td><button onclick="SendMsg('car')">設定車款</button><br/>
+        </tr>
+        </table>
         </div>
     </div>
 
