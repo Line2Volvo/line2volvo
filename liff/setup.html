@@ -29,7 +29,8 @@ if(url.indexOf('?')!=-1)
         if(ary[i].split('=')[0] == 'id')
             id = ary[i].split('=')[1];
     }
-    alert(id);
+    //alert(id);
+     document.getElementById('email').textContent = id;
 }
 ////////////////////////////////////////////////////////
 /////////
@@ -79,7 +80,7 @@ function SendMsg(msg){
         <table>
         <tr><td>
         Email:</td>
-            <td><input type="text" id="email" value="id"/></td><td><button onclick="SendMsg('email')">註冊</button></td>
+            <td><input type="text" id="email" value="mymail@gmail.com"/></td><td><button onclick="SendMsg('email')">註冊</button></td>
         </tr>
         <tr><td>   
         驗證碼：</td>
