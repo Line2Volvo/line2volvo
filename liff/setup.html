@@ -29,8 +29,9 @@ if(url.indexOf('?')!=-1)
         if(ary[i].split('=')[0] == 'id')
             id = ary[i].split('=')[1];
     }
-    alert("ddd");
-    //document.getElementById("email").value = "gmail@gmail.com";
+    alert(id);
+    document.getElementById("email").value = id;
+}    
 ////////////////////////////////////////////////////////
 /////////
 function SendMsg(msg){
