@@ -1,0 +1,103 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Volvo Cars VVIP</title>
+    <link rel="stylesheet" href="poi_vvip.css">
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script>
+////////////////////////////////////////////////////////
+window.onload = function (e) {
+   liff.init();
+};
+////////////////////////////////////////////////////////
+/////////
+function SendMsg(msg){
+   if (msg == "poi") {
+      var url = location.href;
+      var Y="";
+      var X="";
+      if (url.indexOf('?')!=-1) {
+         var ary = url.split('?')[1].split('&');   
+             for(i=0;i<=ary.length-1;i++) {
+                if(ary[i].split('=')[0] == 'Y') {
+                   Y = ary[i].split('=')[1];
+                } 
+                if(ary[i].split('=')[0] == 'X') {
+                   X = ary[i].split('=')[1];
+                } 
+             }
+         }
+      }
+      var YX_POI = "(" + Y + "," + X + ")" + document.getElementById("poi").value;
+      var msg1 = "已傳送，請回到 Line 中並查看訊息。\n";
+
+       //v = "//" + v;
+       //v = "//" + v.replace('\s','');
+       // 送出 Message
+       liff.sendMessages([
+        {
+            "type": "text",
+            "text": XY_POI,
+        }, 
+        ]).then(function () {
+            window.alert(msg1);
+            liff.closeWindow();
+        }).catch(function (error) {
+            window.alert("傳送失敗錯誤碼：" + error);
+        });
+}
+/////////
+////////////////////////////////////////////////////////
+function getYX() {
+   //先取得網址字串
+   var url = location.href;
+   var Y="";
+   var X="";
+ 
+   //再來用去尋找網址列中是否有資料傳遞(QueryString)
+   if (url.indexOf('?')!=-1) {
+       //在此直接將各自的參數資料切割放進ary中
+       var ary = url.split('?')[1].split('&');   
+       //迴圈去搜尋每個資料參數
+       for(i=0;i<=ary.length-1;i++) {
+          if(ary[i].split('=')[0] == 'Y') {
+             Y = ary[i].split('=')[1];
+          } 
+          if(ary[i].split('=')[0] == 'X') {
+             X = ary[i].split('=')[1];
+          } 
+       }
+       //alert(Y);
+       document.getElementById("poi").value = Y + "," + X;
+   }
+}    
+////////////////////////////////////////////////////////
+    </script>  
+</head>
+
+<body>
+
+    <div class="buttonrow">
+        <hr/>
+        VVIP 贊助使用者自訂導航點名稱<br/>
+        1.輸入自訂名稱。<br/>
+        2.按【傳送】。<br/>
+        3.汽車上收自訂導航點。<br/>
+        <hr/>
+       <button onclick="getYX()">getYX</button>
+    </div>
+
+    <div class="buttongroup">
+        <div class="buttonrow">
+        <label>自訂導航點名稱:</label>
+           <input type="text" id="poi" value="導航點"/><button onclick="SendMsg('poi')">傳送</button><br/>
+        </div>
+    </div>
+
+<hr/>
+<div align="right">Line2Volvo ~鄒仔~</div>
+<hr/>
+
+    </div>
+    
+</body>
