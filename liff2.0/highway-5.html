@@ -1,0 +1,159 @@
+﻿﻿<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>高速公路攝影機(國五) 2.0</title>
+    <style>
+html{
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    table-layout:fixed;
+    word-break: break-all;
+}
+
+.div{
+    max-width: 100%;
+    text-align: center;
+}
+
+#highwaycamdiv {
+    text-align: center;
+}
+
+img { 
+    max-width: 80%; 
+    height: auto; 
+}
+
+#profileimagediv{
+    height: 300px;
+    width: 300px;
+}
+
+#contextinfo {
+    display: none
+}
+
+#profileinfo {
+    display: none
+}
+
+.buttongroup{
+    text-align: center;
+}
+
+button {
+    margin: 4px;
+}
+    </style>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script>
+////////////////////////////////////////////////////////
+window.onload = function (e) {
+   liff.getProfile().then(function (profile) {
+      initializeApp(profile);
+   });
+};
+////////////////////////////////////////////////////////
+function initializeApp(profile) {
+    document.getElementById('displaynamefield').textContent = profile.displayName;
+    document.getElementById('statusmessagefield').textContent = profile.statusMessage;
+    var highwayCamDiv = document.getElementById('highwaycamdiv');
+            if (highwayCamDiv.firstElementChild) {
+                highwayCamDiv.removeChild(highwayCamDiv.firstElementChild);
+            }
+            var img = document.createElement('img');
+            img.src = 'http://202.39.180.203:8082/mjpeg/X01001612800101';
+            img.alt = 'HighwayCam';
+            highwayCamDiv.appendChild(img);
+            
+    // closeWindow call
+    document.getElementById('closewindowbutton').addEventListener('click', function () {
+        liff.closeWindow();
+    });
+}
+////////////////////////////////////////////////////////
+function HWCam(uri) {
+    var url = uri.split("&")[0];
+    var CamName = uri.split("&")[1];
+    var highwayCamDiv = document.getElementById('highwaycamdiv');
+    if (highwayCamDiv.firstElementChild) {
+        highwayCamDiv.removeChild(highwayCamDiv.firstElementChild);
+    }
+    var img = document.createElement('img');
+    img.src = url;
+    img.alt = CamName;
+    highwayCamDiv.appendChild(img);
+    document.getElementById("CamLocation").innerHTML = '<font color="blue">' + CamName + '</font>';
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+function openURL(uri) {
+        liff.openWindow({
+            url: uri,
+        });
+}
+////////////////////////////////////////////////////////
+
+    </script>  
+</head>
+
+<body>
+    <div class="tablegroup"  align="center">
+            <div id="highwaycamdiv">
+               <img src="http://202.39.180.204:8082/mjpeg/X01001614800101">   
+            </div>
+             <p id="CamLocation">點選地點觀看即時影像</p>
+       <table border="1">
+            <tr>
+                <th><a href="highway-n.html">北部</a></th>
+                <th><a href="highway-c.html">中部</a></th>
+                <th><a href="highway-s.html">南部</a></th>
+            </tr>
+            <tr>
+                <th><a href="highway-1.html">國1</a></th>
+                <th><a href="highway-3.html">國3</a></th>
+                <th><a href="highway-5.html">國5</a></th>
+            </tr>
+       </table>
+       <table border="1">
+            <tr>
+                <th><a href="highway-5.html">國5</a></th>  
+                <th><a href="highway-e.html">東部</a></th>
+            </tr>
+            <tr>
+                <td valign="top">  
+<button onclick=HWCam('http://202.39.180.212:8082/mjpeg/X01001602801101&▼南港')>▼南港</button>0<br/>
+<button onclick=HWCam('http://202.39.180.212:8082/mjpeg/X01001602900201&▼石碇')>▼石碇</button>3.76<br/>
+<button onclick=HWCam('http://202.39.180.211:8082/mjpeg/X01001606900101&△坪林出口')>△坪林出口</button>14.86<br/>
+<button onclick=HWCam('http://202.39.180.204:8082/mjpeg/X01001606900201&▼坪林入口')>▼坪林入口</button>15.05<br/>
+<button onclick=HWCam('http://202.39.180.212:8082/mjpeg/X01001612900101&▼頭城出口')>▼頭城出口</button>28.23<br/>
+<button onclick=HWCam('http://202.39.180.203:8082/mjpeg/X01001612800101&△頭城入口')>△頭城入口</button>28.28<br/>
+<button onclick=HWCam('http://202.39.180.204:8082/mjpeg/X01001612800501&△宜蘭')>△宜蘭</button>36.11<br/>
+<button onclick=HWCam('http://202.39.180.204:8082/mjpeg/X01001614800101&△羅東')>△羅東</button>45.48<br/>
+                </td>  
+                <td valign="top">
+<button onclick=HWCam('http://117.56.188.163/T2-167K+632&蘇花改蘇澳端')>蘇花改蘇澳端</button>2-167.6<br/>
+<button onclick=HWCam('http://117.56.188.163/T9-113K+181&蘇花改東澳端')>蘇花改東澳端</button>9-113.1<br/>
+<button onclick=HWCam('http://117.56.188.164/T9-131K+300&南澳')>南澳</button>9-131.3<br/>
+                    <hr/>
+<button onclick=HWCam('http://117.56.188.164/T8-168K+700&天祥')>天祥</button>8-168.7<br/>
+<button onclick=HWCam('http://117.56.55.25/T11-4K+900&花蓮台11丙')>花蓮台11丙</button>11-4.9<br/>
+<button onclick=HWCam('http://117.56.55.25/T11-67K+700&豐濱長虹橋')>豐濱長虹橋</button>11-67.7<br/>
+<button onclick=HWCam('http://117.56.234.218/T11-96K+600&長濱寧埔')>長濱寧埔</button>11-96.6<br/>
+<button onclick=HWCam('http://117.56.188.163/T9-249K+510&光復')>光復</button>9-249.5<br/>
+<button onclick=HWCam('http://117.56.188.163/T9-277K+850&瑞穗舞鶴')>瑞穗舞鶴</button>9-277.9<br/>
+<button onclick=HWCam('http://117.56.188.163/T9-289K+650&玉里')>玉里</button>9-289.7<br/>
+                    <hr/>
+<button onclick=HWCam('http://117.56.234.217/T9-393K+130&太麻里')>太麻里</button>9-393.1<br/>
+<button onclick=HWCam('http://117.56.234.217/T9-412K+590&金崙')>金崙</button>9-412.6<br/>
+<button onclick=HWCam('http://117.56.234.217/T9-417K+400&南迴多良')>南迴多良</button>9-417.4<br/>
+<button onclick=HWCam('http://117.56.234.217/T9-441K+000&南興地磅')>南興地磅</button>9-441<br/>
+<button onclick=HWCam('http://117.56.234.217/T9-447K+500&南迴森永')>南迴森永</button>9-447<br/>
+                </td>
+            </tr>
+        </table>
+     </div>
+</body>
