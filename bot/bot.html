@@ -9,16 +9,16 @@ window.onload = function (e) {
     liff.init(function (data) {
         initializeApp(data);
     });
-    liff.getProfile(function (profile) {
-        showApp(profile);
-    });
-   getQueryString();
+    getQueryString();
 };
 ////////////////////////////////////////////////////////
 function initializeApp(data) {
     document.getElementById('uid').textContent = data.context.userId;
 }
 ////////////////////////////////////////////////////////
+    liff.getProfile(function (profile) {
+        showApp(profile);
+    });
 function showApp(profile) {
     document.getElementById('userid').textContent = profile.userId;
     document.getElementById('username').textContent = profile.displayName;
