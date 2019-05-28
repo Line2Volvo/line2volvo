@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////
 window.onload = function (e) {
    liff.init();
-   SendMsg("天氣");
+   SendMessage("天氣");
 };
 ////////////////////////////////////////////////////////
 function getQueryString() {
@@ -26,8 +26,25 @@ if (url.indexOf('?')!=-1)
     //alert(id);
     document.getElementById("myemail").value = id;
 }    
-////////////////////////////////////////////////////////
+
 }
+////////////////////////////////////////////////////////
+/////////
+function SendMessage(msg){
+       // 送出 Message
+       liff.sendMessages([
+        {
+            "type": "text",
+            "text": msg,
+        }, 
+        ]).then(function () {
+            window.alert(msg1);
+            liff.closeWindow();
+        }).catch(function (error) {
+            window.alert("傳送失敗錯誤碼：" + error);
+        });
+}
+/////////
 /////////
 function SendMsg(msg){
        if (msg == "email") {
