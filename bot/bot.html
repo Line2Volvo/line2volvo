@@ -1,7 +1,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bot 公眾機器人2</title>
+    <title>Bot 公眾機器人3</title>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
 ////////////////////////////////////////////////////////
@@ -9,25 +9,7 @@ window.onload = function (e) {
    //liff.init();
    liff.init();
    getQueryString();
-   liff.sendMessages([
-        {
-            "type": "text",
-            "text": "UVI",
-        },
-        {
-            "type": "text",
-            "text": "自己丟雷達回波圖",
-        },
-        {
-            "type": "image",
-            "originalContentUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
-            "previewImageUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
-        },
-    ]).then(function () {
-            liff.closeWindow();
-    }).catch(function (error) {
-            window.alert("傳送失敗錯誤碼：" + error);
-    });
+   SendUVI();
 };
 ////////////////////////////////////////////////////////
 function getQueryString() {
