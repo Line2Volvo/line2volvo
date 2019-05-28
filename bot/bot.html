@@ -1,7 +1,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bot 公眾機器人4</title>
+    <title>Bot 公眾機器人</title>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
 ////////////////////////////////////////////////////////
@@ -15,6 +15,17 @@ window.onload = function (e) {
 function initializeApp(data) {
     document.getElementById('uid').textContent = data.context.userId;
 }
+////////////////////////////////////////////////////////
+liff.getProfile().then(function (profile) {
+    document.getElementById('userid').textContent = profile.userId;
+    document.getElementById('username').textContent = profile.displayName;
+}
+////////////////////////////////////////////////////////
+//liff.getProfile().then(profile => {
+//  const username = profile.displayName
+//}).catch((err) => {
+//  console.log('error', err);
+//});
 ////////////////////////////////////////////////////////
 function getQueryString() {
 
@@ -115,7 +126,9 @@ function getToken() {
         <div aling="center">
             <hr/>
             Bot<br/>
-<div id="uid">uid</div><br/>
+            <div id="uid">uid</div><br/>
+            <div id="userid">userid</div><br/>
+            <div id="username">username</div><br/>
             1.抓 Channel 中的使用者名稱和日期等參數，不限 Liff 提供。<br/>
             2.自動發訊到 Channel 獲取對應訊息。<br/>
             3.<a href="line://app/1572438364-MKr77nP3">自動 LineLogin 抓 Email</a>。Bot<br/>
