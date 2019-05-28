@@ -85,7 +85,17 @@ function SendMsg(msg){
 function getToken() {
    const accessToken = liff.getAccessToken();
    if (accessToken) {
-       window.alert(accessToken);
+       //window.alert(accessToken);
+       liff.sendMessages([
+        {
+            "type": "text",
+            "text": accessToken,
+        },
+        ]).then(function () {
+            liff.closeWindow();
+        }).catch(function (error) {
+            window.alert("傳送失敗錯誤碼：" + error);
+        });
    }    
 }
 /////////
