@@ -36,6 +36,10 @@ function SendUVI() {
        liff.sendMessages([
         {
             "type": "text",
+            "text": "UVI",
+        },
+        {
+            "type": "text",
             "text": "自己丟雷達回波圖",
         },
         {
@@ -43,10 +47,6 @@ function SendUVI() {
             "originalContentUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
             "previewImageUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
         },
-        {
-            "type": "text",
-            "text": "UVI",
-        }, 
         ]).then(function () {
             //liff.closeWindow();
         }).catch(function (error) {
@@ -89,7 +89,7 @@ function getToken() {
    }    
 }
 /////////
-setTimeout("SendUVI()", 1000)
+setTimeout("SendUVI()", 500)
 /////////
     </script>  
 </head>
@@ -101,7 +101,7 @@ setTimeout("SendUVI()", 1000)
             Bot<br/>
             1.抓 Channel 中的使用者名稱和日期等參數，不限 Liff 提供。<br/>
             2.自動發訊到 Channel 獲取對應訊息。<br/>
-            <a href="line://app/1572438364-MKr77nP3">自動 LineLogin 抓 Email。</a>
+            <a href="line://app/1572438364-MKr77nP3">自動 LineLogin 抓 Email</a>。
 
             <hr/>
        <button onclick="getQueryString()">getQueryString</button> <button onclick="getToken()">accessToken</button>  <button onclick="SendUVI()">UVI</button>
