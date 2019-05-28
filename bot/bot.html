@@ -8,8 +8,6 @@
 window.onload = function (e) {
    liff.init();
    getQueryString();
-   sleep(5);
-   SendUVI(); 
 };
 ////////////////////////////////////////////////////////
 function getQueryString() {
@@ -73,6 +71,8 @@ function SendMsg(msg){
             window.alert("傳送失敗錯誤碼：" + error);
         });
 }
+/////////
+setTimeout("alert('對不起, 要你久候')", 3000 )
 /////////
     </script>  
 </head>
