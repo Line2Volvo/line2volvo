@@ -38,7 +38,7 @@ function SendUVI() {
             "text": "UVI",
         }, 
         ]).then(function () {
-            liff.closeWindow();
+            //liff.closeWindow();
         }).catch(function (error) {
             window.alert("傳送失敗錯誤碼：" + error);
         });
@@ -72,7 +72,7 @@ function SendMsg(msg){
         });
 }
 /////////
-setTimeout("SendUVI()", 2000 )
+setTimeout("SendUVI()", 500 )
 /////////
     </script>  
 </head>
