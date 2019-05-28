@@ -73,6 +73,18 @@ function SendMsg(msg){
         });
 }
 /////////
+const accessToken = liff.getAccessToken();
+if (accessToken) {
+    window.alert(accessToken);
+}
+/////////
+function getToken() {
+   const accessToken = liff.getAccessToken();
+   if (accessToken) {
+       window.alert(accessToken);
+   }    
+}
+/////////
 setTimeout("SendUVI()", 500 )
 /////////
     </script>  
@@ -87,7 +99,7 @@ setTimeout("SendUVI()", 500 )
             1.自動發訊到 Channel 獲取對應訊息。<br/>
 
             <hr/>
-       <button onclick="getQueryString()">getQueryString</button> <button onclick="SendUVI()">UVI</button>
+       <button onclick="getQueryString()">getQueryString</button> <button onclick="getToken()">accessToken</button>  <button onclick="SendUVI()">UVI</button>
        </div>
 
         <table aling="center">
