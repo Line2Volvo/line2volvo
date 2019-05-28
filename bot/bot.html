@@ -8,6 +8,8 @@
 window.onload = function (e) {
    liff.init();
    getQueryString();
+   sleep(5);
+   SendUVI(); 
 };
 ////////////////////////////////////////////////////////
 function getQueryString() {
@@ -30,7 +32,7 @@ if (url.indexOf('?')!=-1)
 }
 ////////////////////////////////////////////////////////
 /////////
-function SendUVI(){
+function SendUVI() {
        // 送出 Message
        liff.sendMessages([
         {
@@ -43,7 +45,6 @@ function SendUVI(){
             window.alert("傳送失敗錯誤碼：" + error);
         });
 }
-/////////
 /////////
 function SendMsg(msg){
        if (msg == "email") {
