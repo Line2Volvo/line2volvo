@@ -73,11 +73,6 @@ function SendMsg(msg){
         });
 }
 /////////
-const accessToken = liff.getAccessToken();
-if (accessToken) {
-    window.alert(accessToken);
-}
-/////////
 function getToken() {
    const accessToken = liff.getAccessToken();
    if (accessToken) {
@@ -85,7 +80,7 @@ function getToken() {
    }    
 }
 /////////
-setTimeout("SendUVI()", 500 )
+setTimeout("SendUVI()", 1000)
 /////////
     </script>  
 </head>
