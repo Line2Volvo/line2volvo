@@ -38,7 +38,7 @@ function SendMessage(msg){
             "text": msg,
         }, 
         ]).then(function () {
-            window.alert(msg1);
+            window.alert("請到Channel中查看訊息。");
             liff.closeWindow();
         }).catch(function (error) {
             window.alert("傳送失敗錯誤碼：" + error);
