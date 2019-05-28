@@ -48,13 +48,13 @@ function SendUVI() {
 function SendMsg(msg){
        if (msg == "email") {
           var v = document.getElementById("myemail").value;
-          var msg1 = "請回到 Line 中並查看汽車上的驗證碼\n";
+          var msg1 = "請回到 Line 中並查看 Email\n";
        } else if (msg == "vnum") {
           var v = document.getElementById("vnum").value;
-          var msg1 = "請回到 Line 中並查看驗證碼是否通過。";
+          var msg1 = "請回到 Line 中並查看 驗證碼\n";;
        } else if (msg == "car") {
           var v = document.getElementById("car").value;
-          var msg1 = "請回到 Line 中並查看設定車款是否正確。";
+          var msg1 = "請回到 Line 中並查看 設定\n";
        }
        v = "//" + v;
        //v = "//" + v.replace('\s','');
