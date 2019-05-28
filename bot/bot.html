@@ -1,7 +1,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bot</title>
+    <title>Bot 公眾機器人</title>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
 ////////////////////////////////////////////////////////
@@ -22,6 +22,7 @@ if (url.indexOf('?')!=-1)
         //如果資料名稱為id的話那就把他取出來
         if(ary[i].split('=')[0] == 'id')
             id = decodeURI(ary[i].split('=')[1]);
+            id = id.replace(/%40/,"@");
     }
     //alert(id);
     document.getElementById("myemail").value = id;
