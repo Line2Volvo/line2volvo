@@ -9,7 +9,7 @@ window.onload = function (e) {
     liff.init(function (data) {
         initializeApp(data);
     });
-    liff..getProfile(function (profile) {
+    liff.getProfile(function (profile) {
         showApp(profile);
     });
    getQueryString();
@@ -129,9 +129,6 @@ function getToken() {
         <div aling="center">
             <hr/>
             Bot<br/>
-            <div id="uid">uid</div><br/>
-            <div id="userid">userid</div><br/>
-            <div id="username">username</div><br/>
             1.抓 Channel 中的使用者名稱和日期等參數，不限 Liff 提供。<br/>
             2.自動發訊到 Channel 獲取對應訊息。<br/>
             3.<a href="line://app/1572438364-MKr77nP3">自動 LineLogin 抓 Email</a>。Bot<br/>
@@ -151,6 +148,9 @@ function getToken() {
            <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="40"></td><td><button onclick="SendMsg('vnum')">測試</button></td>
         </tr>
         </table>
+            <div id="uid"></div><br/>
+            <div id="userid">userid</div><br/>
+            <div id="username">username</div><br/>
 <hr/>
 <div align="right">~鄒仔~</div>
 <hr/>
