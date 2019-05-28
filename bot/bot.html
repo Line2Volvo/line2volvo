@@ -1,0 +1,91 @@
+﻿<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Bot</title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script>
+////////////////////////////////////////////////////////
+window.onload = function (e) {
+   liff.init();
+};
+////////////////////////////////////////////////////////
+function getLineLogin() {
+
+var url = location.href;
+if (url.indexOf('?')!=-1)
+{
+    var id = "";
+    var ary = url.split('?')[1].split('&');
+    for(i=0;i<=ary.length-1;i++)
+    {
+        //如果資料名稱為id的話那就把他取出來
+        if(ary[i].split('=')[0] == 'id')
+            id = ary[i].split('=')[1];
+    }
+    //alert(id);
+    document.getElementById("myemail").value = id;
+}    
+////////////////////////////////////////////////////////
+}
+/////////
+function SendMsg(msg){
+       if (msg == "email") {
+          var v = document.getElementById("myemail").value;
+          var msg1 = "請回到 Line 中並查看汽車上的驗證碼\n";
+       } else if (msg == "vnum") {
+          var v = document.getElementById("vnum").value;
+          var msg1 = "請回到 Line 中並查看驗證碼是否通過。";
+       } else if (msg == "car") {
+          var v = document.getElementById("car").value;
+          var msg1 = "請回到 Line 中並查看設定車款是否正確。";
+       }
+       v = "//" + v;
+       //v = "//" + v.replace('\s','');
+
+       // 送出 Message
+       liff.sendMessages([
+        {
+            "type": "text",
+            "text": v,
+        }, 
+        ]).then(function () {
+            window.alert(msg1);
+            liff.closeWindow();
+        }).catch(function (error) {
+            window.alert("傳送失敗錯誤碼：" + error);
+        });
+}
+/////////
+    </script>  
+</head>
+
+<body>
+
+        <div class="buttonrow">
+            <hr/>
+            Bot<br/>
+            1.liff?QueryString<br/>
+
+            <hr/>
+       <button onclick="getQueryString()">getQueryString</button>
+       </div>
+
+        <table>
+        <tr><td>
+        Email:</td>
+            <td><input type="email" id="myemail" value="email"/></td><td><button onclick="SendMsg('email')">註冊</button></td>
+        </tr>
+        <tr><td>   
+        驗證碼：</td>
+           <td><input type="number" pattern="[0-9]*" id="vnum" value="5678"/ maxlength="4"></td><td><button onclick="SendMsg('vnum')">驗證</button></td>
+        </tr>
+
+        </table>
+
+<hr/>
+<div align="right">~鄒仔~</div>
+<hr/>
+
+    </div>
+    
+</body>
