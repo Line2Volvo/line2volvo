@@ -1,7 +1,7 @@
 ﻿<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bot 公眾機器人3</title>
+    <title>Bot 公眾機器人4</title>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script>
 ////////////////////////////////////////////////////////
@@ -13,7 +13,7 @@ window.onload = function (e) {
 };
 ////////////////////////////////////////////////////////
 function initializeApp(data) {
-    document.getElementById('uid').textContent = profile.displayName;
+    document.getElementById('uid').textContent = data.context.userId;
 }
 ////////////////////////////////////////////////////////
 function getQueryString() {
