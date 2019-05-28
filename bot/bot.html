@@ -7,8 +7,7 @@
 ////////////////////////////////////////////////////////
 window.onload = function (e) {
    liff.init();
-   var msg = 'UVI';
-   SendMessage(msg);
+   SendMessage();
 };
 ////////////////////////////////////////////////////////
 function getQueryString() {
@@ -31,12 +30,12 @@ if (url.indexOf('?')!=-1)
 }
 ////////////////////////////////////////////////////////
 /////////
-function SendMessage(msg){
+function SendMessage(){
        // 送出 Message
        liff.sendMessages([
         {
             "type": "text",
-            "text": msg,
+            "text": "UVI",
         }, 
         ]).then(function () {
             liff.closeWindow();
