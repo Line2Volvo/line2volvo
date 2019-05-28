@@ -6,7 +6,35 @@
     <script>
 ////////////////////////////////////////////////////////
 window.onload = function (e) {
-   liff.init();
+   //liff.init();
+liff.init(
+  data => {
+    // Now you can call LIFF API
+    const userId = data.context.userId;
+  },
+  err => {
+    // LIFF initialization failed
+  }
+ liff.sendMessages([
+        {
+            "type": "text",
+            "text": "UVI",
+        },
+        {
+            "type": "text",
+            "text": "自己丟雷達回波圖",
+        },
+        {
+            "type": "image",
+            "originalContentUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
+            "previewImageUrl": "https://www.cwb.gov.tw/Data/radar/CV1_3600.png",
+        },
+        ]).then(function () {
+            //liff.closeWindow();
+        }).catch(function (error) {
+            window.alert("傳送失敗錯誤碼：" + error);
+        });
+);
    getQueryString();
 };
 ////////////////////////////////////////////////////////
