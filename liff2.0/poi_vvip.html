@@ -9,6 +9,7 @@
 window.onload = function (e) {
    liff.init();
    getTITLE();
+   getYX();
 };
 ////////////////////////////////////////////////////////
 /////////
@@ -53,7 +54,7 @@ function getYX() {
    var url = location.href;
    var Y="";
    var X="";
-   var YX =  Y + "," + X;
+
  
    //再來用去尋找網址列中是否有資料傳遞(QueryString)
    if (url.indexOf('?')!=-1) {
@@ -68,8 +69,8 @@ function getYX() {
              X = ary[i].split('=')[1];
           } 
        }
-       window.alert("tt");
-       document.getElementById("YX").innerHTML = Y;
+       //window.alert("Y");
+       document.getElementById("YX").innerHTML = Y + "<br>" + X;
    }
 } 
 /////////
