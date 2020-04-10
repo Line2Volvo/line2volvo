@@ -53,6 +53,7 @@ function getYX() {
    var url = location.href;
    var Y="";
    var X="";
+   var YX="0,0";
  
    //再來用去尋找網址列中是否有資料傳遞(QueryString)
    if (url.indexOf('?')!=-1) {
@@ -68,7 +69,7 @@ function getYX() {
           } 
        }
        //alert(Y);
-       document.getElementById("poi").value = Y + "," + X;
+       document.getElementById("YX").value = Y + "," + X;
    }
 } 
 /////////
@@ -119,5 +120,5 @@ function getTITLE() {
 <hr/>
 
     </div>
-    
+<h2 id="YX"></h2>
 </body>
