@@ -70,6 +70,8 @@ function getYX() {
           } 
        }
        //window.alert("Y");
+       Y = Math.round(Y * 100000) / 100000; 
+       X = Math.round(X * 100000) / 100000;
        document.getElementById("YX").innerHTML = "<h1 style='font-size:400%'>" + Y + "<br>" + X + "</h1>";
    }
 } 
