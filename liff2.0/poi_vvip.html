@@ -53,6 +53,7 @@ function getYX() {
    var url = location.href;
    var Y="";
    var X="";
+   var YX =  Y + "," + X;
  
    //再來用去尋找網址列中是否有資料傳遞(QueryString)
    if (url.indexOf('?')!=-1) {
@@ -68,7 +69,7 @@ function getYX() {
           } 
        }
        //alert(Y);
-       document.getElementById("YX").innerHTML = Y + "," + X;
+       document.getElementById("YX").innerHTML = Y;
    }
 } 
 /////////
