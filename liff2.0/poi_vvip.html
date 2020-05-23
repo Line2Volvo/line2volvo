@@ -72,7 +72,7 @@ function getYX() {
        //window.alert("Y");
        Y = Math.round(Y * 100000) / 100000; 
        X = Math.round(X * 100000) / 100000;
-       document.getElementById("YX").innerHTML = "<h1 style='font-size:400%'>" + Y + "<br>" + X + "</h1>";
+       document.getElementById("YX").innerHTML = "<h1 style='font-size:400%'><a href='http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-tw&q=北緯" + Y + ",東經" + X + "'>" + Y + "<br>" + X + "</a></h1>";
    }
 } 
 /////////
